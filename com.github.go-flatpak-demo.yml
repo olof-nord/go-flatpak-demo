@@ -20,7 +20,3 @@ modules:
         url: "https://github.com/olof-nord/go-flatpak-demo"
         tag: master
         dest: src/github.com/olof-nord/go-flatpak-demo
-
-
-
-
