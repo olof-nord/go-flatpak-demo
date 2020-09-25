@@ -1,16 +1,11 @@
 # Compiled output
-/build/
+build
+dist
+.flatpak-builder
 
 # IDEs and editors
 /.idea
 *.iml
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-/.mvn/
 
 # System Files
 .DS_Store
