@@ -2,6 +2,7 @@
 build
 dist
 .flatpak-builder
+go-flatpak-demo
 
 # IDEs and editors
 /.idea
