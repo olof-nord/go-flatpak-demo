@@ -4,6 +4,10 @@ import (
 	"fmt"
 )
 
-func Print() {
-    fmt.Println("Hello World")
+func Hello() string {
+    return "Hello World"
+}
+
+func Say() {
+    fmt.Println(Hello())
 }
