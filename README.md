@@ -19,7 +19,7 @@ flatpak install org.freedesktop.Sdk.Extension.golang//20.08
 
 `flatpak-builder build com.github.go-flatpak-demo.yml --force-clean --verbose`
 
-## Install
+## Build & Install 
 
 `flatpak-builder --user --install build com.github.go-flatpak-demo.yml --force-clean --verbose`
 
