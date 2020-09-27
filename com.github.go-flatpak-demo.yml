@@ -13,10 +13,15 @@ modules:
       prefix: /usr/lib/sdk/golang
       prepend-path: /usr/lib/sdk/golang/bin
     build-commands:
-      - "cd src/github.com/olof-nord/go-flatpak-demo; go build -v ."
-      - "install -Dm755 src/github.com/olof-nord/go-flatpak-demo/go-flatpak-demo $FLATPAK_DEST/bin/go-flatpak-demo"
+      - "go env -w GOPATH=$PWD;
+         go build -v github.com/olof-nord/go-flatpak-demo"
+      - "install -Dm755 go-flatpak-demo $FLATPAK_DEST/bin/go-flatpak-demo"
     sources:
       - type: git
         url: "https://github.com/olof-nord/go-flatpak-demo"
         tag: master
         dest: src/github.com/olof-nord/go-flatpak-demo
+      - type: git
+        url: "https://github.com/dustin/go-humanize"
+        tag: v1.0.0
+        dest: src/github.com/dustin/go-humanize
