@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+    <id>com.github.go-flatpak-demo</id>
+    <name>Go flatpak demo</name>
+    <launchable type="desktop-id">com.github.go-flatpak-demo.desktop</launchable>
+    <project_license>GPL-3.0</project_license>
+    <developer_name>Olof Nord</developer_name>
+    <summary>Go flatpak demo application</summary>
+    <metadata_license>GPL-3.0</metadata_license>
+    <url type="homepage">https://github.com/olof-nord/go-flatpak-demo/</url>
+    <description>
+        <p>
+            Demo project for a demo go application packaged with Flatpak.
+        </p>
+    </description>
+    <releases>
+        <release version="1.0.0" date="2020-09-28"/>
+    </releases>
+</component>

@@ -5,6 +5,14 @@ sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.golang
 command: go-flatpak-demo
+finish-args:
+  # See https://docs.flatpak.org/en/latest/sandbox-permissions-reference.html
+  # X11 + XShm access
+  - --share=ipc
+  - --socket=x11
+  - --socket=fallback-x11
+  # Wayland access
+  - --socket=wayland
 
 modules:
   - name: go-flatpak-demo
@@ -15,10 +23,11 @@ modules:
     build-commands:
       - "go env -w GOPATH=$PWD;
          go build -v github.com/olof-nord/go-flatpak-demo"
-      - "install -Dm 755 go-flatpak-demo ${FLATPAK_DEST}/bin/go-flatpak-demo"
+      - "install -Dm 755 go-flatpak-demo /app/bin/go-flatpak-demo"
       - "cd src/github.com/olof-nord/go-flatpak-demo;
-         install -Dm 755 com.github.go-flatpak-demo_512.png ${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png;
-         install -Dm 755 com.github.go-flatpak-demo.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
+         install -Dm 644 com.github.go-flatpak-demo_512.png /app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png;
+         install -Dm 644 com.github.go-flatpak-demo.appdata.xml /app/share/appdata/${FLATPAK_ID}.appdata.xml;
+         install -Dm 644 com.github.go-flatpak-demo.desktop /app/share/applications/${FLATPAK_ID}.desktop"
     sources:
       - type: git
         url: "https://github.com/olof-nord/go-flatpak-demo"
