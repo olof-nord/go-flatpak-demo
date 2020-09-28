@@ -2,7 +2,7 @@
 
 [Desktop Entry]
 Name=go-flatpak-demo
-Exec=go-flatpak-demo && sleep 10
+Exec="go-flatpak-demo && sleep 10"
 Terminal=true
 Type=Application
 Comment=A demo go application
