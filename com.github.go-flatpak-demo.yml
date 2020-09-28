@@ -15,7 +15,11 @@ modules:
     build-commands:
       - "go env -w GOPATH=$PWD;
          go build -v github.com/olof-nord/go-flatpak-demo"
-      - "install -Dm755 go-flatpak-demo $FLATPAK_DEST/bin/go-flatpak-demo"
+      - "install go-flatpak-demo ${FLATPAK_DEST}/bin/go-flatpak-demo"
+      - "cd src/github.com/olof-nord/go-flatpak-demo;
+         install com.github.go-flatpak-demo_512.png ${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.png;
+         install com.github.go-flatpak-demo_1024.png ${FLATPAK_DEST}/share/icons/hicolor/1024x1024/apps/${FLATPAK_ID}.png;
+         install com.github.go-flatpak-demo.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
     sources:
       - type: git
         url: "https://github.com/olof-nord/go-flatpak-demo"

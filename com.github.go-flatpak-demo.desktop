@@ -1,0 +1,9 @@
+# http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html
+
+[Desktop Entry]
+Name=go-flatpak-demo
+Exec=go-flatpak-demo
+Terminal=true
+Type=Application
+Comment=A demo go application
+Icon=com.github.go-flatpak-demo
