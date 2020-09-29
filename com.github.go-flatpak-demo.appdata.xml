@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!-- https://docs.flatpak.org/en/latest/freedesktop-quick-reference.html#appdata-files -->
+
 <component type="desktop">
     <id>com.github.go-flatpak-demo</id>
     <name>Go flatpak demo</name>

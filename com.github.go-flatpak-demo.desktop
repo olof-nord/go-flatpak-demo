@@ -1,8 +1,8 @@
-# http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html
+# https://docs.flatpak.org/en/latest/freedesktop-quick-reference.html#desktop-files
 
 [Desktop Entry]
 Name=Go flatpak demo
-Exec=go-flatpak-demo
+Exec=com.github.go-flatpak-demo
 Terminal=true
 Type=Application
 Comment=A demo go application
