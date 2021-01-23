@@ -1,0 +1,34 @@
+stages:
+  - test
+  - build
+
+image: golang:1.15
+
+variables:
+  GIT_DEPTH: 10
+
+.prepare:
+  before_script:
+    - go mod download
+
+test:
+  extends: .prepare
+  stage: test
+  needs: []
+  script:
+    - go test -race ./...
+  only:
+    refs:
+      - merge_requests
+      - master
+
+build:
+  extends: .prepare
+  stage: build
+  needs: []
+  script:
+    - go build -v
+  only:
+    refs:
+      - merge_requests
+      - master
