@@ -28,6 +28,10 @@ build:
   needs: []
   script:
     - go build -v
+  artifacts:
+    name: "go-flatpak-demo-${CI_PIPELINE_IID}"
+    paths:
+      - $CI_PROJECT_DIR/go-flatpak-demo
   only:
     refs:
       - merge_requests
