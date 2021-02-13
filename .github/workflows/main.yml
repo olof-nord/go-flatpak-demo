@@ -74,6 +74,6 @@ jobs:
           # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object,
           # which includes an `upload_url`.
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./go-flatpak-demo/go-flatpak-demo-${{ github.run_number }}/
-          asset_name: go-flatpak-demo-${{ github.run_number }}
-          asset_content_type: application/zip
+          asset_path: ./go-flatpak-demo/go-flatpak-demo-${{ github.run_number }}/go-flatpak-demo
+          asset_name: go-flatpak-demo
+          asset_content_type: application/octet-stream
