@@ -46,6 +46,9 @@ jobs:
       # Debug: See what artifacts were downloaded
       - run: ls -la ${{ steps.release_artifacts.outputs.string }}
 
+      # Debug: What is the output object content?
+      - run: echo ${{ steps.release_artifacts.outputs }}
+
       - name: Create release
         # if: github.ref == 'refs/heads/main'
         id: create_release
@@ -68,5 +71,5 @@ jobs:
           # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object,
           # which includes an `upload_url`.
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ steps.release_artifacts.outputs.string }}
+          asset_path: ./
           asset_name: go-flatpak-demo-${{ github.run_number }}
