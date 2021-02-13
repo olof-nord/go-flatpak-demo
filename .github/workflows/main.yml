@@ -46,6 +46,9 @@ jobs:
       # Debug: See what artifacts were downloaded
       - run: ls -la ${{ steps.release_artifacts.outputs.string }}
 
+      # Debug: See what artifacts were downloaded 2
+      - run: ls -la ./go-flatpak-demo
+
       - name: Create release
         # if: github.ref == 'refs/heads/main'
         id: create_release
