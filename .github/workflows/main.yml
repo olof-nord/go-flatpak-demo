@@ -28,3 +28,39 @@ jobs:
         with:
           name: go-flatpak-demo-${{ github.run_number }}
           path: go-flatpak-demo
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v2
+        with:
+          path: go-flatpak-demo
+
+      - name: Create release
+        # if: github.ref == 'refs/heads/main'
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body_path: README.md
+          draft: true
+          prerelease: true
+
+      - name: Upload release asset
+        # if: github.ref == 'refs/heads/main'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object,
+          # which includes an `upload_url`.
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: go-flatpak-demo
+          asset_name: my-artifact.zip
+          asset_content_type: application/zip
