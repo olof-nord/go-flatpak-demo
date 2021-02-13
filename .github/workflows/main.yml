@@ -41,16 +41,7 @@ jobs:
         id: release_artifacts
         uses: actions/download-artifact@v2
         with:
-          path: go-flatpak-demo
-
-      # Debug: See what artifacts were downloaded
-      - run: ls -la ${{ steps.release_artifacts.outputs.string }}
-
-      # Debug: See what artifacts were downloaded 2
-      - run: ls -la ./go-flatpak-demo
-
-      # Debug: See what artifacts were downloaded 3
-      - run: ls -la ./go-flatpak-demo/go-flatpak-demo-${{ github.run_number }}/
+          path: build-artifacts
 
       - name: Create release
         # if: github.ref == 'refs/heads/main'
@@ -74,6 +65,6 @@ jobs:
           # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object,
           # which includes an `upload_url`.
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./go-flatpak-demo/go-flatpak-demo-${{ github.run_number }}/go-flatpak-demo
+          asset_path: ./build-artifacts/go-flatpak-demo-${{ github.run_number }}/go-flatpak-demo
           asset_name: go-flatpak-demo
           asset_content_type: application/octet-stream
